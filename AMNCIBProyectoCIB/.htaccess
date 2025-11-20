@@ -1,0 +1,3 @@
+DirectoryIndex index.html
+ErrorDocument 500 /AMNCIBProyectoCIB/error/500.html
+ErrorDocument 404 /AMNCIBProyectoCIB/error/404.html

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2-4</title>
+
+    <style>
+        .parrafos1{
+            background-color: lightgray;
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+        }
+        .parrafos1:first-child{
+            background-color: rgb(43, 71, 230);
+        }
+        .parrafos1:last-child{
+            background-color: brown;
+        }
+        #contenedor2{
+            margin-top: 80px;
+        }
+        #contenedor3{
+            margin-top: 80px;
+        }
+        #contenedor4{
+            margin-top: 80px;
+        }
+        #contenedor5{
+            margin-top: 80px;
+        }
+        #contenedor6{
+            margin-top: 80px;
+        }
+
+        li:nth-child(2){
+            background-color: red;
+        }
+        li:nth-child(5){
+            background-color: red;
+        }
+        li:nth-child(4){
+            background-color: burlywood;
+        }
+        li{
+            width: 200px;
+        }
+
+        #contenedor3 p:only-child{
+            background-color: lime;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .parrafos4{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            background-color: lightgray;
+        }
+
+        .parrafos4:first-of-type{
+            background-color: lightblue;
+        }
+
+        .parrafos5{
+            background-color: lightgray;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .parrafos5:nth-of-type(2){
+            background-color: darkblue;
+            color:white;
+            margin-bottom: 20px;
+        }
+
+        .parrafos6{
+            background-color: lightgray;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        #contenedor6 span:only-of-type{
+            background-color: red;
+            width: 80px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="contenedor1">
+    <div class="parrafos1"><p>Paragraph 1</p></div>
+    <div class="parrafos1"><p>Paragraph 2</p></div>
+    <div class="parrafos1"><p>Paragraph 3</p></div>
+    <div class="parrafos1"><p>Paragraph 4</p></div>
+    </div>
+
+    <div id="contenedor2">
+        <ul>
+            <li>Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+            <li>Option 4</li>
+            <li>Option 5</li>
+            <li>Option 6</li>
+        </ul>
+    </div>
+
+    <div id="contenedor3"><p>single paragraph</p></div>
+
+    <div id="contenedor4">
+        <div class="parrafos4"><p>Paragraph one</p></div>
+        <p>text in span</p>
+        <div class="parrafos4"><p>Paragraph two2</p></div>
+        <b >Text in strong</b>
+        <div style="background-color: yellow; width: 200px;"><p>This is a div</p></div>
+        <div class="parrafos4"><p>Paragraph three</p></div>
+    </div>
+
+    <div id="contenedor5">
+        <div class="parrafos5"><p>Paragraph one</p></div>
+        <p>text in span</p>
+        <div class="parrafos5"><p>Paragraph two2</p></div>
+        <b style="background-color: burlywood; width: 100px; color:white;">Text in strong</b>
+        <div><p>This is a div</p></div>
+        <div class="parrafos5"><p>Paragraph three</p></div>
+    </div>
+
+    <div id="contenedor6">
+        <div class="parrafos6"><p>Paragraph one</p></div>
+        <div class="parrafos6"><p>Paragraph two2</p></div>
+        <span>text in span</span>
+        <div class="parrafos6"><p>Paragraph three</p></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    
+    <script defer>
+        let num=prompt("Introduce un número");
+        let acumulador=0;
+        let caracter="";
+
+        while(num!=null){
+            if(isNaN(parseInt(num))){
+                caracter+=num;
+            }
+            else{
+                acumulador+=parseInt(num);
+            }
+            num=prompt("Introduce un número");
+        }
+
+        alert("La suma de los numeros es: "+acumulador);
+        alert("Los caracteres introducidos son: "+caracter);
+    </script>
+</body>
+</html>

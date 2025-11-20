@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    
+
+    <script defer>
+        var numero=prompt("Introduce un número: ");
+
+        function fibonacci(numero){
+            
+            if(numero<=0) return 0;
+            if(numero==1) return 0;
+            if(numero==2) return 1;
+
+            let a=0,b=1, temp;
+
+            for(let i=3;i<=numero;i++){
+                temp=a+b;
+                a=b;
+                b=temp;
+            }
+            return b;
+
+        }
+
+        resultado=fibonacci(numero);
+        alert("El número en la posición " + numero + " de la sucesión de Fibonacci es: " + resultado);
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 2</title>
+</head>
+<body>
+    
+    <script defer>
+        let numeroMaximo=0;
+        let numeroMinimo=0;
+        let acumulador=0;
+        let contador=0;
+
+        numero=parseInt(prompt("Introduce un número"));
+
+        if(!isNaN(numero) && numero!=0){
+            numeroMaximo=numero;
+            numeroMinimo=numero;
+
+            do{
+                acumulador+=numero;
+                contador++;
+                if(numero!=0){
+                if(numero>numeroMaximo){
+                    numeroMaximo=numero;
+                }
+                if(numero<numeroMinimo){
+                    numeroMinimo=numero;
+                }
+                }
+                numero=parseInt(prompt("Introduce un número"));
+            }while(parseInt(numero)!=0);
+            
+        }
+        else{
+            alert("No has introducido un número");
+        }
+        
+
+        document.write("El número máximo es: "+numeroMaximo);
+        document.write("El número minimo es: "+numeroMinimo);
+        document.write("La media es: "+acumulador/contador);
+    </script>
+</body>
+</html>

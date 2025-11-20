@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    
+    <script defer>
+        var numero=10000;
+
+        function random(numero){
+            var m=new Map();
+
+           for(var i=0;i<=numero;i++){
+            let numAl=parseInt(Math.random()*10+1);
+            if(!m.has(numAl)){   // si no lo tiene lo crea y lo inicializa a 1
+                    m.set(numAl,1);
+                }
+                else{
+                    m.set(numAl,m.get(numAl)+1); // si lo tiene le suma 1 al valor
+                }
+           }
+            return m;
+        }
+
+        console.log(random(numero));
+    </script>
+</body>
+</html>

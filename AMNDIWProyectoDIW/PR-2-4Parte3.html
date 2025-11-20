@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2-3-3</title>
+    <style>
+    .botonesInicio{
+       display: inline-block;
+       margin-right: 40px;
+        width: 80px;
+        padding-left: 10px;
+    }
+
+    article{
+        width: 850px;
+        height: 150px;
+    }
+
+    #a1{
+        background-color: gray;
+        color: white;
+    }
+
+    #a2{
+        background-color: orange;
+    }
+
+    #a3{
+        background-color: cyan;
+    }
+
+    article:target{
+        font-family: 'Courier New', Courier, monospace;
+        color: yellow !important;
+    }
+
+    .botonVolver{
+        background-color: green;
+        color: white;
+        width: 100px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+
+</style>
+</head>
+<body>
+    
+    <div class="botonesInicio" style="background-color: rgb(255, 0, 140);"><b><a href="#a1">Primero</a></b></div>
+    <div class="botonesInicio" style="background-color: burlywood;"><b><a href="#a2">Segundo</a></b></div>
+    <div class="botonesInicio" style="background-color: rgb(255, 115, 0);"><b><a href="#a3">Tercero</a></b></div>
+
+    <article id="a1">
+        <h3>Articulo UNO</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vulputate sollicitudin et, posuere semper curae malesuada taciti
+         pharetra nisi purus praesent. Lectus a litora netus egestas quisque taciti vel, n
+         on montes eleifend cras platea mi, feugiat iaculis ante eros arcu per.</p>
+        <div class="botonVolver"><b><a href="#botonesInicio">Volver</a></b></div>
+    </article>
+
+    <article id="a2">
+        <h3>Articulo DOS</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vulputate sollicitudin et, posuere semper curae malesuada taciti
+         pharetra nisi purus praesent. Lectus a litora netus egestas quisque taciti vel, n
+         on montes eleifend cras platea mi, feugiat iaculis ante eros arcu per.</p>
+        <div class="botonVolver"><b><a href="#botonesInicio">Volver</a></b></div>
+    </article>
+
+    <article id="a3">
+        <h3>Articulo TRES</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vulputate sollicitudin et, posuere semper curae malesuada taciti
+         pharetra nisi purus praesent. Lectus a litora netus egestas quisque taciti vel, n
+         on montes eleifend cras platea mi, feugiat iaculis ante eros arcu per.</p>
+        <div class="botonVolver"><b><a href="#botonesInicio">Volver</a></b></div>
+    </article>
+
+</body>
+</html>

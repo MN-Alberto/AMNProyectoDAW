@@ -1,0 +1,3 @@
+DirectoryIndex index.html
+ErrorDocument 500 /AMNDWECProyectoDWEC/error/500.html
+ErrorDocument 404 /AMNDWECProyectoDWEC/error/404.html

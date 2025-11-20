@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR-1-1-2-ColorComplementario</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            font-weight: bold;
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        div{
+            width: 32%;
+            height: 48px;
+            display: inline-block; /*Para que esten en la misma linea */
+        }
+
+        span{
+            width: 50%;
+            height: 48px;
+            display: block;
+            line-height: 48px;
+        }
+
+        span.hide{
+            display: none;
+        }
+
+        div:nth-of-type(1) span:first-child{background-color: red;}
+        div:nth-of-type(1) span:last-child{background-color: cyan;}
+
+        div:nth-of-type(2) span:first-child{background-color: lime;}
+        div:nth-of-type(2) span:last-child{background-color: magenta;}
+
+        div:nth-of-type(3) span:first-child{background-color: blue;}
+        div:nth-of-type(3) span:last-child{background-color: yellow;}
+
+
+        div:nth-of-type(1):hover span.vis{display: none;}
+        div:nth-of-type(1):hover span.hide{display: block;}
+
+        div:nth-of-type(2):hover span.vis{display: none;}
+        div:nth-of-type(2):hover span.hide{display: block;}
+
+
+        div:nth-of-type(3):hover span.vis{display: none;}
+        div:nth-of-type(3):hover span.hide{display: block;}
+    </style>
+
+</head>
+<body>
+        <h4>Colores RGB, al pasar el ratón por encima, muestran el color complementario</h4>
+        <div id="rojo">
+            <span class="vis">Color rojo #FF0000</span>
+            <span class="hide">Color cyan #00FFFF</span>
+        </div>
+
+        <div id="verde">
+            <span class="vis">Color verde #00FF00</span>
+            <span class="hide">Color magenta #FF00FF</span>
+        </div>
+
+        <div id="azul">
+            <span class="vis">Color azul #0000FF</span>
+            <span class="hide">Color amarillo #FFFF00</span>
+        </div>
+</body>
+</html>

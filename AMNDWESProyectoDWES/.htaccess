@@ -1,0 +1,3 @@
+DirectoryIndex indexProyectoDWES.php
+ErrorDocument 500 /AMNDWESProyectoDWES/error/500.html
+ErrorDocument 404 /AMNDWESProyectoDWES/error/404.html

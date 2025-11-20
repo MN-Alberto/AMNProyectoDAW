@@ -1,0 +1,6 @@
+DirectoryIndex index.php index.html
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+
+RewriteRule ^(.*)$ https://10.199.9.104/$1 [R,L]

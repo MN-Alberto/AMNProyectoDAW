@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    
+    <script defer>
+        let nAleatorio=parseInt(Math.random()*100+1);
+        let adi=prompt("Introduce un número aleatorio entre 1 y 100: ");
+        let intento=1;
+        var acertado=false;
+        var terminado=true;
+
+        let confirmar;
+
+        while(intento<5){
+
+            if(isNaN(parseInt(adi))){
+                alert("Error, introduzca un número: ");
+                adi=prompt("Introduce un número aleatorio entre 1 y 100: ");
+            }
+            else{
+
+                if(adi==nAleatorio){
+                    confirmar=confirm("HA ACERTADO!!!, ¿Desea volver a jugar?");
+                    acertado==true;
+                    if(acertado){
+                        break;
+                    }
+                }
+
+                else{
+                    if(adi<nAleatorio){
+                        alert("El número es mayor");
+                    }
+                    else{
+                        alert("El número es menor");
+                    }
+                }
+            }
+
+            intento++;
+            adi=prompt("Introduce un número aleatorio entre 1 y 100: ");
+
+            if(intento==5){
+                confirmar=confirm("Ha perdido, ¿Desea volver a jugar?");
+                break;
+            }
+
+            if(confirmar==false){
+                alert("Se cancceló el juego");
+                break;
+            }
+        }
+
+        if(confirmar==false){
+        document.write("Juego terminado: NO");
+        document.write("Número de intentos: "+intento);
+        document.write("Número acertado: NO");
+        }
+
+        if(confirmar==true){
+        document.write("Juego terminado: SI");
+        document.write("Número de intentos: "+intento);
+        if(intento==5){
+            document.write("Número acertado: NO");
+        }
+        else{
+        document.write("Número acertado: SI"); 
+        }
+        }   
+
+    </script>
+</body>
+</html>

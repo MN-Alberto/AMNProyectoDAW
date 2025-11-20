@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR-2-5</title>
+    <style>
+        #Email:valid{
+            background-color: rgb(199, 238, 139);
+        }
+        #Email:invalid{
+            background-color: rgb(231, 106, 106);
+            
+        }
+        div{
+            background-color: lightgoldenrodyellow;
+            width: 800px;
+        }
+        *{
+            box-sizing: border-box;
+            font-family: sans-serif;
+        #f1{
+            & label,input{
+                display: inline-block;
+            }
+            & label{
+                width: 150px;
+                margin-right: 100px;
+                margin-bottom: 10px;
+            }
+            & input{
+                    height: 48px;
+                    margin-bottom: 10px;
+            }
+            input:nth-of-type(1){
+            width: 250px;
+        }
+        input:nth-of-type(2){
+            width: 300px;
+            background-color: rgb(252, 192, 192);
+            border: transparent;
+        }
+        input:nth-of-type(3){
+            width: 350px;
+            border: 2px solid black;
+        }
+        input:nth-of-type(4){
+            background-color: rgb(252, 192, 192);
+            border: transparent;
+        }
+        }
+        
+    }
+
+        table{
+            width: 100%;
+        }
+        td{
+            background-color: rgb(231, 202, 255);
+            margin-right: 2px;
+            height: 50px;
+            padding-left: 5px;
+        }
+
+        #boton{
+            background-color: red;
+            border-radius: 5px;
+        }
+
+        #boton2{
+            background-color: rgb(170, 170, 255);
+            border-radius: 5px;
+        }
+
+        #Buscar{
+            margin-top: 20px;
+        }
+
+        form{
+            text-align: center;
+            > fieldset{text-align: left}
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+    <form>
+        <fieldset id="f1">
+        
+        <legend>Pseudo-clases en formularios</legend>
+        <label>:autofocus</label>
+        <input type="text" name="Usuario" placeholder="Usuario" autofocus>
+        <br>
+        <label>:required</label>
+        <input type="text" name="Apellidos" placeholder="Apellidos">
+        <br>
+        <label>:valid/:invalid</label>
+        <input type="email" id="Email" placeholder="mail@main.com">
+        <br>
+        <label>Password (8 min):</label>
+        <input type="password" id="passwd" minlength="8">
+
+        </fieldset>
+
+        <fieldset id="f2">
+            <legend>file, date, color, time</legend>
+
+            <table>
+            <tr>
+            <td>
+            <label>Archivo a subir:</label><br>
+            <input type="file">
+            </td>
+
+            <td>
+            <label>Elige color:</label>
+            <input type="color" style="width: 50px;">
+            </td>
+            </tr>
+            <tr>
+            <td>
+            <label>Fecha pedido:</label>
+            <input type="date">
+            </td>
+
+            <td>
+            <label>Hora:</label>
+            <input type="time">
+        </td>
+        </tr>    
+        </table>
+        </fieldset>
+
+        <fieldset id="f3">
+            <legend>:checked, :in-range /:out-of-range</legend>
+            <label>Sexo:</label>
+            <input type="radio" id="hombre" name="Sexo" value="Hombre" checked>
+            <label for="hombre">Hombre</label>
+
+            <input type="radio" id="mujer" name="Sexo" value="mujer">
+            <label for="mujer">Mujer</label>
+            <br>
+            <label>Aficiones:</label>
+
+            <input type="checkbox" id="musica" name="gustos">
+            <label for="musica">Música</label>
+
+            <input type="checkbox" id="deportes" name="gustos">
+            <label for="deportes">Deportes</label>
+
+            <input type="checkbox" id="Lectura" name="gustos">
+            <label for="Lectura">Lectura</label>
+
+            <input type="checkbox" id="Cocina" name="gustos">
+            <label for="Cocina">Cocina</label>
+            <br>
+            <label>Edad (1-120):</label>
+            <input type="number" id="edad" name="edad" min="1" max="120" placeholder="1">
+
+            <label>Buscar:</label>
+            <input type="search" id="Buscar" name="buscar">
+            <label for="Buscar">🔍</label>
+        </fieldset>
+        <button type="submit" id="boton" name="boton">Enviar datos</button>
+        <button type="reset" id="boton2" name="boton">Resetear datos</button>
+    </form>
+    </div>
+</body>
+</html>
