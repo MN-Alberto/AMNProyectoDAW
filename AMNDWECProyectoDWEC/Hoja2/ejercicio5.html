@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    
+    <script defer>
+
+        function invertirMapa(){
+            const mCoches = new Map([
+            ["1111BCD", "Seat"],
+            ["2222DEF", "Audi"],
+            ["3333FGH", "Mercedes"],
+            ["4444HIJ", "Seat"],
+            ["5555JKL", "Mercedes"],
+            ["6666LMN", "Seat"]
+        ]);
+
+        var m2=new Map();
+
+        for (const element of mCoches) {
+            if(!m2.has(element[1])){
+                m2.set(element[1],new Array(element[0]));
+            }
+            else{
+                m2.get(element[1]).push(element[0]);
+            }
+        }
+        return m2;
+        }
+
+        console.log(invertirMapa());
+    </script>
+</body>
+</html>

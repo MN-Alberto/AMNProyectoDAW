@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    
+    <script defer>
+        var palabra=prompt("Introduce Palabras: ");
+        if(isNaN(palabra)){
+        var palabras=[];
+        var numPalabras=0;
+        var opcion;
+
+        do{
+            palabras.push(palabra);
+            palabra=prompt("Introduce palabras: ");
+            numPalabras++;
+        }while(palabra!=null);
+    }
+    else{
+        alert("No es una palabra");
+    }
+
+    
+    do{
+        opcion=prompt(
+        "a. Ver primera palabra insertada.\n"+
+        "b. Ver última palabra insertada.\n"+
+        "c. Ver todas las palabras.\n"+
+        "d. Ver la palabra más larga.\n"+
+        "e. Ver la palabra más corta.\n"+
+        "f. Número de palabras insertadas.\n"+
+        "g. Buscar una palabra.\n"+
+        "h. Borrar duplicados.\n"+
+        "i. Salir.\n"
+    );
+
+
+    switch(opcion){
+
+        case "a":{
+            alert("La primera palabra es: "+palabras[0]);
+            break;
+        }
+
+        case "b":{
+            var ultima;
+            for (var i=0;i<palabras.length;i++) {
+                ultima=palabras[i];
+            }
+            alert("La ultima palabra es: "+ultima);
+            break;
+        }
+
+        case "c":{
+            alert("Las palabras insertadas son: "+palabras);
+            break;
+        }
+
+        case "d":{
+            var masLarga=palabras[0];
+            for (var i=0;i<palabras.length;i++) {
+                if(palabras[i].length>masLarga.length){
+                    masLarga=palabras[i];
+                }
+            }
+            alert("La palabra mas larga es: "+masLarga);
+            break;
+        }
+
+        case "e":{
+            var masCorta=palabras[0];
+            for (var i=0;i<palabras.length;i++) {
+                if(palabras[i].length<masCorta.length){
+                    masCorta=palabras[i];
+                }
+            }
+            alert("La palabra mas corta es: "+masCorta);
+            break;
+        }
+
+        case "f":{
+            alert("El número de palabras insertadas es: "+numPalabras);
+            break;
+        }
+
+        case "g":{
+            var buscarPalabra=prompt("Introduce una palabra a buscar: ");
+            var encontrado=false;
+            for (var i=0;i<palabras.length;i++) {
+                if(palabras[i]==buscarPalabra){
+                    encontrado=true;
+                }
+            }
+            if(encontrado){
+                alert("Palabra encontrada");
+                break;
+            }
+            break;
+        }
+
+        case "h":{
+            let c=new Set(palabras);
+            console.log(c);
+            palabras=[...c];
+            alert("Elimianr duplicados: "+c);
+            break;
+        }
+
+        case "i":{
+            alert("SALIENDO...");
+        }
+
+    }
+
+}while(opcion!="i");
+    </script>
+</body>
+</html>

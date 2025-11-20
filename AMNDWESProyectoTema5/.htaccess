@@ -1,0 +1,6 @@
+DirectoryIndex indexProyectoTema5.php
+ErrorDocument 500 /AMNDWESProyectoTema5/error/500.html
+ErrorDocument 404 /AMNDWESProyectoTema5/error/404.html
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]

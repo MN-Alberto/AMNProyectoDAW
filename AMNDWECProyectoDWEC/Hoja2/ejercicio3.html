@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    
+    <script defer>
+        var palabras=new Array();
+        var palabra;
+
+        do{
+        palabra=prompt("Introduce palabras");
+        palabras.push(palabra);
+        }while(palabra!=null || palabra=="");
+        palabras.pop();
+
+        function mapa(palabras){
+            var m=new Map();
+            for (const element of palabras) {
+                if(!m.has(element)){   // si no lo tiene lo crea y lo inicializa a 1
+                    m.set(element,1);
+                }
+                else{
+                    m.set(element,m.get(element)+1); // si lo tiene le suma 1 al valor
+                }
+            }
+
+            return m;
+        }
+
+        console.log(mapa(palabras));
+    </script>
+</body>
+</html>

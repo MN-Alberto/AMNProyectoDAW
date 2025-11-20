@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    
+<!-- 
+    Crea un script que pida al usuario su fecha de nacimiento
+     y le diga el dia de la semana
+    en el que nació y el día de la semana de todos sus cumpleaños hasta este año.
+-->
+    
+
+    <script>
+        const fechaIntroducir=prompt("Introduce tu fecha de nacimiento en formato 'dd/mm/yyyy': ");
+        const [dia,mes,anio]=fechaIntroducir.split("/");
+        const fecha=new Date(anio,mes-1,dia);
+        const fechaActual=new Date();
+
+        document.writeln("Fecha de nacimiento: "+fecha+"<br>");
+        switch(fecha.getDay()){
+            case 1: document.write("El día en el que nació fue lunes.");
+            break;
+
+            case 2: document.write("El día en el que nació fue martes.");
+            break;
+
+            case 3: document.write("El día en el que nació fue miercoles.");
+            break;
+
+            case 4: document.write("El día en el que nació fue jueves.");
+            break;
+
+            case 5: document.write("El día en el que nació fue viernes.");
+            break;
+
+            case 6: document.write("El día en el que nació fue sabado.");
+            break;
+
+            case 7: document.write("El día en el que nació fue domingo.");
+            break;
+        }
+
+        do{
+        cumpleaños=fecha.setFullYear(fecha.getFullYear()+1,fecha.getMonth(),fecha.getDay());
+
+        switch(fecha.getDay()){
+            case 1: document.writeln("El día de su cumpleaños fue lunes."+"<br>");
+            break;
+
+            case 2: document.writeln("El día de su cumpleaños fue martes."+"<br>");
+            break;
+
+            case 3: document.writeln("El día de su cumpleaños fue miercoles."+"<br>");
+            break;
+
+            case 4: document.writeln("El día de su cumpleaños fue jueves."+"<br>");
+            break;
+
+            case 5: document.writeln("El día de su cumpleaños fue viernes."+"<br>");
+            break;
+
+            case 6: document.writeln("El día de su cumpleaños fue sabado."+"<br>");
+            break;
+
+            case 7: document.writeln("El día de su cumpleaños fue domingo."+"<br>");
+            break;
+        }
+        }while(fecha.getFullYear()!=fechaActual.getFullYear());
+
+</script>
+</body>
+</html>

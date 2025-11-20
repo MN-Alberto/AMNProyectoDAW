@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación BOM</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="📘-documentación-técnica-de-objetos-y-propiedades-del-navegador">📘 Documentación Técnica de Objetos y Propiedades del Navegador</h1>
+<p>Esta documentación cubre de manera técnica y completa los objetos y propiedades más relevantes del entorno <strong><code>window</code></strong> en JavaScript:</p>
+<p><code>screen</code>, <code>history</code>, <code>console</code>, <code>navigator</code>, <code>screenX</code>, <code>screenY</code>, <code>scrollX</code> y <code>scrollY</code>.</p>
+<p>Se presenta con <strong>tablas de propiedades y métodos</strong>, <strong>sintaxis</strong> y <strong>ejemplos de uso modernos</strong>.</p>
+<hr>
+<h2 id="🖥️-objeto-screen">🖥️ Objeto <code>screen</code></h2>
+<h3 id="🔹-descripción">🔹 Descripción</h3>
+<p>Proporciona información sobre la pantalla física del dispositivo.</p>
+<h3 id="🔹-sintaxis">🔹 Sintaxis</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+window<span class="token punctuation">.</span>screen
+
+</code></pre>
+<h3 id="🔹-propiedades-principales">🔹 Propiedades principales</h3>
+<p>| Propiedad | Descripción | Ejemplo |</p>
+<p>|------------|------------|---------|</p>
+<p>| <code>width</code> | Ancho total de la pantalla en píxeles. | <code>screen.width</code> |</p>
+<p>| <code>height</code> | Altura total de la pantalla en píxeles. | <code>screen.height</code> |</p>
+<p>| <code>availWidth</code> | Ancho disponible (sin barras de tareas, docks, etc.). | <code>screen.availWidth</code> |</p>
+<p>| <code>availHeight</code> | Altura disponible. | <code>screen.availHeight</code> |</p>
+<p>| <code>colorDepth</code> | Profundidad de color en bits por píxel. | <code>screen.colorDepth</code> |</p>
+<p>| <code>pixelDepth</code> | Igual que <code>colorDepth</code>. | <code>screen.pixelDepth</code> |</p>
+<p>| <code>orientation</code> | Objeto que describe la orientación de la pantalla. | <code>screen.orientation.type</code> |</p>
+<p>| <code>orientation.angle</code> | Ángulo de rotación de la pantalla. | <code>screen.orientation.angle</code> |</p>
+<h3 id="🔹-ejemplo">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Resolución total: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">x</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>height<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Resolución disponible: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>availWidth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">x</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>availHeight<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Profundidad de color: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>colorDepth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Orientación: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>orientation<span class="token punctuation">.</span>type<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, ángulo: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screen<span class="token punctuation">.</span>orientation<span class="token punctuation">.</span>angle<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h2 id="📜-objeto-history">📜 Objeto <code>history</code></h2>
+<h3 id="🔹-descripción-1">🔹 Descripción</h3>
+<p>Permite acceder y manipular el historial de navegación de la pestaña actual.</p>
+<h3 id="🔹-sintaxis-1">🔹 Sintaxis</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+window<span class="token punctuation">.</span>history
+
+</code></pre>
+<h3 id="🔹-propiedades-y-métodos">🔹 Propiedades y métodos</h3>
+<p>| Propiedad / Método | Descripción | Ejemplo |</p>
+<p>|------------------|-------------|---------|</p>
+<p>| <code>length</code> | Número de entradas en el historial. | <code>history.length</code> |</p>
+<p>| <code>back()</code> | Navega a la página anterior. | <code>history.back()</code> |</p>
+<p>| <code>forward()</code> | Navega a la página siguiente. | <code>history.forward()</code> |</p>
+<p>| <code>go(n)</code> | Navega <code>n</code> pasos en el historial (positivo o negativo). | <code>history.go(-2)</code> |</p>
+<p>| <code>scrollRestoration</code> | Controla restauración de posición de scroll (<code>auto</code> o <code>manual</code>). | <code>history.scrollRestoration = "manual"</code> |</p>
+<h3 id="🔹-ejemplo-1">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Entradas en historial: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>history<span class="token punctuation">.</span>length<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+history<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Retrocede una página</span>
+
+history<span class="token punctuation">.</span><span class="token function">go</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Retrocede dos páginas</span>
+
+</code></pre>
+<hr>
+<h2 id="🧭-objeto-navigator">🧭 Objeto <code>navigator</code></h2>
+<h3 id="🔹-descripción-2">🔹 Descripción</h3>
+<p>Contiene información sobre el navegador y entorno del usuario.</p>
+<h3 id="🔹-sintaxis-2">🔹 Sintaxis</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+window<span class="token punctuation">.</span>navigator
+
+</code></pre>
+<h3 id="🔹-propiedades-principales-1">🔹 Propiedades principales</h3>
+<p>| Propiedad | Descripción | Ejemplo |</p>
+<p>|------------|-------------|---------|</p>
+<p>| <code>userAgent</code> | Cadena con información del navegador y SO. | <code>navigator.userAgent</code> |</p>
+<p>| <code>platform</code> | Sistema operativo. | <code>navigator.platform</code> |</p>
+<p>| <code>language</code> | Idioma preferido del navegador. | <code>navigator.language</code> |</p>
+<p>| <code>languages</code> | Array de idiomas preferidos. | <code>navigator.languages</code> |</p>
+<p>| <code>onLine</code> | Indica si hay conexión a Internet. | <code>navigator.onLine</code> |</p>
+<p>| <code>cookieEnabled</code> | Indica si las cookies están habilitadas. | <code>navigator.cookieEnabled</code> |</p>
+<p>| <code>hardwareConcurrency</code> | Número de núcleos de CPU disponibles. | <code>navigator.hardwareConcurrency</code> |</p>
+<p>| <code>deviceMemory</code> | Memoria RAM aproximada en GB. | <code>navigator.deviceMemory</code> |</p>
+<p>| <code>maxTouchPoints</code> | Número máximo de puntos táctiles simultáneos. | <code>navigator.maxTouchPoints</code> |</p>
+<p>| <code>connection</code> | Objeto que indica estado de la red. | <code>navigator.connection.downlink</code> |</p>
+<h3 id="🔹-ejemplo-2">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Navegador: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>userAgent<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Plataforma: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>platform<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Idioma: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>language<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Conectado: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>onLine<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`CPU cores: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>hardwareConcurrency<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Memoria aprox.: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>navigator<span class="token punctuation">.</span>deviceMemory<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> GB`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h2 id="🧰-objeto-console">🧰 Objeto <code>console</code></h2>
+<h3 id="🔹-descripción-3">🔹 Descripción</h3>
+<p>Proporciona métodos para depuración y salida de información en la consola.</p>
+<h3 id="🔹-sintaxis-3">🔹 Sintaxis</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"mensaje"</span><span class="token punctuation">)</span>
+
+</code></pre>
+<h3 id="🔹-métodos-comunes">🔹 Métodos comunes</h3>
+<p>| Método | Descripción | Ejemplo |</p>
+<p>|--------|------------|---------|</p>
+<p>| <code>log()</code> | Mensaje general. | <code>console.log("Hola")</code> |</p>
+<p>| <code>error()</code> | Mensaje de error. | <code>console.error("Error!")</code> |</p>
+<p>| <code>warn()</code> | Mensaje de advertencia. | <code>console.warn("Cuidado!")</code> |</p>
+<p>| <code>info()</code> | Mensaje informativo. | <code>console.info("Info")</code> |</p>
+<p>| <code>table()</code> | Muestra datos en tabla. | <code>console.table([{a:1,b:2},{a:3,b:4}])</code> |</p>
+<p>| <code>group()</code> / <code>groupEnd()</code> | Agrupa mensajes. | <code>console.group("Grupo"); console.log("Msg"); console.groupEnd();</code> |</p>
+<p>| <code>time()</code> / <code>timeEnd()</code> | Cronometrar operaciones. | <code>console.time("T"); doSomething(); console.timeEnd("T");</code> |</p>
+<p>| <code>clear()</code> | Limpia la consola. | <code>console.clear()</code> |</p>
+<h3 id="🔹-ejemplo-3">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token string">"Depuración"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Mensaje 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"Advertencia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"Error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">groupEnd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">table</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>a<span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">,</span>b<span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h2 id="📍-propiedades-screenx-y-screeny">📍 Propiedades <code>screenX</code> y <code>screenY</code></h2>
+<p>| Propiedad | Descripción | Ejemplo |</p>
+<p>|------------|------------|---------|</p>
+<p>| <code>screenX</code> | Posición horizontal de la ventana respecto a la pantalla. | <code>window.screenX</code> |</p>
+<p>| <code>screenY</code> | Posición vertical de la ventana respecto a la pantalla. | <code>window.screenY</code> |</p>
+<h3 id="🔹-ejemplo-4">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Posición de ventana: X=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screenX<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, Y=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>screenY<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<hr>
+<h2 id="🧾-propiedades-scrollx-y-scrolly">🧾 Propiedades <code>scrollX</code> y <code>scrollY</code></h2>
+<p>| Propiedad | Descripción | Ejemplo |</p>
+<p>|------------|------------|---------|</p>
+<p>| <code>scrollX</code> | Desplazamiento horizontal del documento en píxeles. | <code>window.scrollX</code> |</p>
+<p>| <code>scrollY</code> | Desplazamiento vertical del documento en píxeles. | <code>window.scrollY</code> |</p>
+<h3 id="🔹-ejemplo-5">🔹 Ejemplo</h3>
+<pre class=" language-javascript"><code class="prism  language-javascript">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Desplazamiento actual: X=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>scrollX<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, Y=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>scrollY<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token function">scrollTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Desplaza la página verticalmente</span>
+
+</code></pre>
+<hr>
+<h2 id="📚-notas-finales">📚 Notas finales</h2>
+<ul>
+<li>
+<p>Todos los objetos pertenecen al <strong>objeto global <code>window</code></strong>.</p>
+</li>
+<li>
+<p>Se puede omitir <code>window.</code> en la mayoría de los casos (ej.: <code>screen.width</code> en lugar de <code>window.screen.width</code>).</p>
+</li>
+</ul>
+</div>
+</body>
+
+</html>

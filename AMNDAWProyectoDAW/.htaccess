@@ -1,0 +1,3 @@
+DirectoryIndex index.html
+ErrorDocument 500 /AMNDAWProyectoDAW/error/500.html
+ErrorDocument 404 /AMNDAWProyectoDAW/error/404.html

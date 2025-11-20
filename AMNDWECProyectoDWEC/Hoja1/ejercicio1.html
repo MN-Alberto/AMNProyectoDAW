@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 1</title>
+</head>
+<body>
+    
+    <script defer>
+        var numero=prompt("Introduce un número:");
+        tipo=console.log(typeof(numero));
+
+        if(!isNaN(parseInt(numero)) && tipo!="number"){
+            alert("El usuario ha introducido un número");
+            let esPrimo= true;
+            for(let i=2;i<(numero/2)+1;i++){
+                esPrimo=false;
+                break;
+            }
+            if(esPrimo==true){
+                alert("El número es primo");
+            }
+            else{
+                alert("El número no es primo");
+            }
+            if(numero%2==0){
+                alert("El número es par");
+            }
+            else{
+                alert("El número es impar");
+            }
+        }
+
+        else{
+            alert("El usuario no ha introducido un número");
+        }
+
+    </script>
+</body>
+</html>

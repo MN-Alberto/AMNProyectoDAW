@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sopa de Letras</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+        }
+        h1{
+            text-decoration: underline;
+        }
+        td{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>SOPA DE LETRAS</h1>
+    <div id="mostrarTabla">
+
+    </div>
+
+    <script defer>
+
+        var palabras=[
+            "PERRO", "GATO", "CASA", "ARBOL", "COCHE",
+            "LIBRO", "ESCUELA", "SOL", "LUNA", "MAR",
+            "MONTAÑA", "RIO", "CAMINO", "FLOR", "AMIGO",
+            "FAMILIA", "COMIDA", "JUEGO", "MUSICA", "CIUDAD",
+            "CAFE", "TE", "JUGO", "AGUA", "CIENCIA",
+            "TECNOLOGIA", "MATEMATICAS", "HISTORIA", "GEOGRAFIA", "LENGUAJE",
+            "ARTE", "MUSICA", "DEPORTE", "FUTBOL", "BALONCESTO",
+            "TENIS", "NATACION", "CINE", "TEATRO", "DANZA",
+            "PINTURA", "ESCULTURA", "LIBRERIA", "MERCADO", "TIENDA",
+            "BIBLIOTECA", "HOSPITAL", "PARQUE", "PLAZA", "CALLE",
+            "PUENTE", "TORRE", "CASTILLO", "IGLESIA", "TEMPLO",
+            "ESTACION", "AEROPUERTO", "BARCO", "TREN", "AUTOBUS",
+            "BICICLETA", "MOTOCICLETA", "AUTO", "CAMION", "SEMAFORO"
+        ];
+
+        var dimension=0;
+
+        function calcularDimension(palabras){
+            var nLetras=0;
+            var palabraMasLarga="";
+
+            for(let i=0;i<palabras.length;i++){
+            nLetras+=palabras[i].length;
+
+            if(palabraMasLarga.length<palabras[i].length){
+                palabraMasLarga=palabras[i];
+            }
+            if(palabraMasLarga.length<Math.sqrt(nLetras)){
+                dimension=Math.sqrt(nLetras);
+            }
+            else{
+                dimension=palabraMasLarga.length;
+            }
+        }
+        
+        console.log("Palabra más larga: "+palabraMasLarga);
+        console.log("Número de letras: "+nLetras);
+
+        return dimension;
+        }
+
+        var dimensionTabla=calcularDimension(palabras);
+
+
+        var filas = Math.ceil(dimensionTabla);
+        var columnas = Math.ceil(dimensionTabla);
+
+        
+        let tablero = Array.from({ length: filas }, () => Array(columnas).fill(""));
+
+        
+        function crearTabla(tablero) {
+            let tabla = "<table border='1'>";
+            for (let i = 0; i < tablero.length; i++) {
+                tabla += "<tr>";
+                for (let j = 0; j < tablero[i].length; j++) {
+                    tabla += `<td>${tablero[i][j]}</td>`;
+                }
+                tabla += "</tr>";
+            }
+            tabla += "</table>";
+            document.getElementById("mostrarTabla").innerHTML = tabla;
+        }
+
+
+        function calcularPosicionAleatoria(dimensionTabla){
+
+            var maximoTabla=dimensionTabla*dimensionTabla;
+            var posAleatoria=Math.floor(Math.random()*maximoTabla);
+
+            const fila = Math.floor(posAleatoria / dimensionTabla);
+            const col = posAleatoria % dimensionTabla;
+
+            console.log(`Posición aleatoria: fila ${fila}, col ${col}`);
+            return { fila, col };
+        }
+
+        function calcularDireccionAleatoria(){
+            //0->arriba
+            //1->arriDerecha
+            //2->derecha
+            //3->abaDerecha
+            //4->abajo
+            //5->abaIzquierda
+            //6->izquierda
+            //7->arriIzquierda
+
+
+            var direccion=parseInt(Math.random()*8);
+            var dirAle=[];
+
+            switch(direccion){
+
+                case 0: dirAle=[-1,0]; break;
+
+                case 1: dirAle=[-1,1]; break;
+
+                case 2: dirAle=[0,1]; break;
+
+                case 3: dirAle=[1,1]; break;
+
+                case 4: dirAle=[1,0]; break;
+
+                case 5: dirAle=[1,-1]; break;
+
+                case 6: dirAle=[0,-1]; break;
+
+                case 7: dirAle=[-1,-1]; break;
+
+            }
+
+            console.log("Dirección aleatoria: "+dirAle);
+            return dirAle;
+        }
+
+
+        function comprobarPosicionValida(tablero,palabra,posAleatoria,dirAle){
+            var nFilas=tablero.length;
+            var nCol=tablero[0].length;
+
+            var tamañoPalabra=palabra.length;
+
+            var inicioF=posAleatoria.fila;
+            var inicioC=posAleatoria.col;
+
+            var dirF=dirAle[0];
+            var dirC=dirAle[1];
+
+            var filFin=inicioF+dirF*(tamañoPalabra-1);
+            var colFin=inicioC+dirC*(tamañoPalabra-1);
+            
+            if(filFin<0 || filFin>=nFilas || colFin<0 || colFin>=nCol){
+                return false;
+            }
+
+            for(let i=0;i<tamañoPalabra;i++){
+                const fila=inicioF+dirF*i;
+                const columna=inicioC+dirC*i;
+
+                const pos = tablero[fila][columna];
+                const letraPal = palabra[i];
+
+                if(pos != "" && pos != letraPal){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+        function escribirPalabra(tablero, palabra, posicion, direccion) {
+            const { fila, col } = posicion;
+            for (let i = 0; i < palabra.length; i++) {
+                let f = fila + i * direccion[0];
+                let c = col + i * direccion[1];
+                tablero[f][c] = palabra[i];
+            }
+        }
+
+
+        function pintarTablero(tablero){
+                        for (let palabra of palabras) {
+                    let colocada = false;
+
+                    for (let intento = 0; intento < 100; intento++) {
+                        const posAleatoria = calcularPosicionAleatoria(tablero.length);
+                        const direccion = calcularDireccionAleatoria();
+
+                        if (comprobarPosicionValida(tablero, palabra, posAleatoria, direccion)) {
+                            escribirPalabra(tablero, palabra, posAleatoria, direccion);
+                            colocada = true;
+                            break;
+                        }
+                    }
+
+                    if (colocada) {
+                        console.log(`"${palabra}" colocada correctamente`);
+                    } else {
+                        console.log(`No se pudo colocar "${palabra}"`);
+                    }
+                }
+            }
+
+        function rellenarEspaciosTablero(tablero){
+            const vocales = ["A","E","I","O","U"];
+            const consonantes = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+
+            var porAleatorio;
+
+            for(let i=0;i<tablero.length;i++){
+                for(let j=0;j<tablero[i].length;j++){
+                    if(tablero[i][j]==""){
+                        porAleatorio=Math.random();
+                        if(porAleatorio<0.7){
+                            tablero[i][j]=consonantes[Math.floor(Math.random() * consonantes.length)];
+                        }
+                        else{
+                            tablero[i][j]=vocales[Math.floor(Math.random() * vocales.length)];
+                        }
+                    }
+                }
+            }
+        }
+
+        pintarTablero(tablero);
+        rellenarEspaciosTablero(tablero);
+        crearTabla(tablero);
+    </script>
+</body>
+</html>
+
+
+
+<!-- calcularDimension(palabras)
+        crearTabla(dimension,tablero)
+        calcularPosicionAleaotria(dimension)
+        calcularDireccionAleatoria()
+        comprobarPosicionValida(tablero,aPalabras,posicion,direccion)
+        escribirPalabra(tablero,palabra,posicion,direccion)
+rellenarEspaciosTablero(tablero)
+        pintarTablero(tablero)
+ -->
+
+
+ 
+<!-- 
+-- PRIMERA PARTE -- 
+
+ 
+
+Crear el tablero a partir de una serie de palabras dadas. Se pasará como parámetro un array de palabras y en función del número de palabras y del tamaño de la palabra más larga, crearemos el tablero con las dimensiones adecuadas. El tablero será un array multidimensional en el que en cada posición almacenará una letra. Las condiciones que debe cumplir el tamaño del tablero son las siguientes: 
+
+La dimensión mínima del tablero será la de la palabra más larga. 
+
+El tablero tendrá como mínimo el doble del total de letras de todas las palabras. 
+
+Las palabras se colocarán en el tablero de forma aleatoria y pueden escribirse dentro del mismo en cualquier dirección y pudiéndose cruzar. 
+
+Una vez que las palabras estén colocadas en el tablero se rellenará el resto del tablero con letras pseudoaleatorias (70% consonantes, 30% vocales). 
+
+Divide el problema en funciones más pequeñas que ayuden a modularizar el problema y encontrar la solución de forma más sencilla. 
+
+Se debe mostrar el tablero en el documento, esto será una única función que recibirá el array multidimensional y lo pintará en la web.   -->
+
+ 
